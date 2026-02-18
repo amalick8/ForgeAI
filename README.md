@@ -1,9 +1,5 @@
 # Forge: AI Career Accelerator
 
-<div align="center">
-  <img width="1200" height="475" alt="Forge Banner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
 ## About
 
 **Forge** is a premium, AI-powered career acceleration platform for software engineers and students. It provides high-fidelity analysis of resumes, GitHub profiles, and LeetCode activity to help you identify gaps and land FAANG-level interviews.
