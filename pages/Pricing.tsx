@@ -30,7 +30,7 @@ const PricingPage: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto px-6 pt-24 pb-32">
+    <div className="max-w-5xl mx-auto px-6 pt-14 pb-32">
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold text-white mb-4 tracking-tight">Simple, honest pricing.</h1>
         <p className="text-gray-400">Invest in your career. Upgrade when you're ready.</p>
@@ -40,7 +40,16 @@ const PricingPage: React.FC = () => {
         {tiers.map((tier, i) => (
           <div 
             key={i} 
-            className={`p-10 rounded-xl border flex flex-col transition-all ${tier.highlight ? 'border-white/20 bg-white/[0.03] shadow-2xl' : 'border-white/5 bg-[#111]'}`}
+            className="
+                p-10 rounded-xl border flex flex-col
+                border-white/5 bg-[#111]
+                transition-all duration-300
+                hover:scale-[1.03]
+                hover:border-white/20
+                hover:bg-white/[0.03]
+                hover:shadow-2xl hover:shadow-white/5
+              "
+
           >
             <div className="mb-8">
               <span className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em]">{tier.name}</span>
@@ -68,8 +77,55 @@ const PricingPage: React.FC = () => {
       </div>
 
       {/* Comparison Table */}
-      <section className="mb-24">
-        <h2 className="text-xs font-bold text-gray-500 uppercase tracking-widest text-center mb-12">Comparison</h2>
+      <section id="comparison" className="mb-24 scroll-mt-24">
+        
+        
+      {/* Comparison Button (bigger + pushed upward + animated) */}
+        <div className="flex justify-center -mt-16 mb-12">
+          <button
+            onClick={(e) => {
+              const btn = e.currentTarget;
+
+              // Button press animation
+              btn.classList.add("scale-95");
+
+              setTimeout(() => {
+                btn.classList.remove("scale-95");
+              }, 160);
+
+              // Smooth animated scroll
+              setTimeout(() => {
+                const section = document.getElementById("comparison");
+                if (!section) return;
+
+                const targetY =
+                  section.getBoundingClientRect().top +
+                  window.pageYOffset -
+                  80;
+
+                window.scrollTo({
+                  top: targetY,
+                  behavior: "smooth",
+                });
+              }, 220);
+            }}
+            className="
+              inline-flex items-center gap-2
+              bg-white text-black
+              px-6 py-3 rounded-xl
+              text-sm font-semibold
+              tracking-wide
+              hover:bg-gray-200
+              transition-transform duration-200
+              transform
+            "
+          >
+            Comparison
+            <span className="text-base">↓</span>
+          </button>
+        </div>
+
+        {/* Table */}
         <div className="border border-white/5 rounded-xl overflow-hidden text-sm bg-[#111]">
           <table className="w-full text-left">
             <thead>
@@ -98,6 +154,7 @@ const PricingPage: React.FC = () => {
             </tbody>
           </table>
         </div>
+
       </section>
 
       {/* FAQ */}
