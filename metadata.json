@@ -1,0 +1,5 @@
+{
+  "name": "Forge: AI Career Accelerator",
+  "description": "Forge is a premium, AI-powered career acceleration platform for software engineers. It provides high-fidelity analysis of resumes, GitHub profiles, and LeetCode activity to help students land FAANG-level interviews.",
+  "requestFramePermissions": []
+}
