@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code, BrainCircuit, ChevronRight, Target, Award, X, Info, Layout } from 'lucide-react';
+import { Code, BrainCircuit, ChevronRight, Target, Award, X, Info, Layout, Star } from 'lucide-react';
 
 // Added isDemo prop to the component signature to match expected usage in App.tsx
 const LeetCodeAnalyzer: React.FC<{ isDemo?: boolean }> = ({ isDemo }) => {
@@ -14,6 +14,36 @@ const LeetCodeAnalyzer: React.FC<{ isDemo?: boolean }> = ({ isDemo }) => {
     { name: 'Graphs', level: 78, strengths: ['BFS', 'Union Find'], weaknesses: ['Bridges/Articulations'], next: ['Critical Connections'] },
     { name: 'Trees', level: 65, strengths: ['Traversal'], weaknesses: ['Lowest Common Ancestor'], next: ['Binary Tree Paths'] },
   ];
+
+  const problemTypes = [
+    { name: 'Arrays & Hashing', difficulty: 'Easy-Medium', choices: ['Two Pointers', 'Prefix Sum', 'Counting'], importance: 5 },
+    { name: 'Strings', difficulty: 'Easy-Medium', choices: ['Sliding Window', 'Frequency', 'Parsing'], importance: 4 },
+    { name: 'Stacks & Queues', difficulty: 'Easy-Medium', choices: ['Monotonic Stack', 'Deque', 'Simulation'], importance: 4 },
+    { name: 'Linked Lists', difficulty: 'Easy-Medium', choices: ['Fast/Slow', 'Merge', 'Reverse'], importance: 3 },
+    { name: 'Binary Search', difficulty: 'Medium', choices: ['Boundaries', 'Rotated', 'Answer Space'], importance: 5 },
+    { name: 'Trees & BST', difficulty: 'Medium', choices: ['DFS', 'LCA', 'Traversal'], importance: 5 },
+    { name: 'Graphs', difficulty: 'Medium-Hard', choices: ['BFS/DFS', 'Union Find', 'Shortest Path'], importance: 5 },
+    { name: 'Dynamic Programming', difficulty: 'Medium-Hard', choices: ['1D/2D', 'Knapsack', 'Intervals'], importance: 5 },
+    { name: 'Greedy', difficulty: 'Medium', choices: ['Intervals', 'Scheduling', 'Optimization'], importance: 4 },
+    { name: 'Backtracking', difficulty: 'Medium', choices: ['Subsets', 'Permutations', 'Pruning'], importance: 4 },
+    { name: 'Heaps & Priority Queues', difficulty: 'Medium', choices: ['Top K', 'Scheduling', 'Streaming'], importance: 4 },
+    { name: 'Bit Manipulation', difficulty: 'Medium', choices: ['Masks', 'XOR', 'Counting Bits'], importance: 3 },
+    { name: 'Tries', difficulty: 'Medium', choices: ['Prefix', 'Word Search', 'Autocomplete'], importance: 3 },
+    { name: 'Design', difficulty: 'Medium-Hard', choices: ['LRU', 'Rate Limit', 'Cache'], importance: 5 },
+    { name: 'Math & Geometry', difficulty: 'Easy-Medium', choices: ['Number Theory', 'Coordinates', 'Combinatorics'], importance: 3 },
+  ];
+
+  const getChoiceStyles = (choice: string) => {
+    const hue = choice
+      .split('')
+      .reduce((acc, char) => (acc * 31 + char.charCodeAt(0)) % 360, 0);
+
+    return {
+      color: `hsl(${hue} 80% 70%)`,
+      borderColor: `hsl(${hue} 80% 55% / 0.5)`,
+      backgroundColor: `hsl(${hue} 80% 20% / 0.3)`,
+    };
+  };
 
   return (
     <div className="space-y-12 pb-12 relative">
@@ -58,6 +88,46 @@ const LeetCodeAnalyzer: React.FC<{ isDemo?: boolean }> = ({ isDemo }) => {
               <div className="text-2xl font-bold text-white mb-2">{item.level}%</div>
               <div className="h-1 bg-white/5 rounded-full"><div className="h-full bg-indigo-500" style={{ width: `${item.level}%` }}></div></div>
             </button>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-6">Problem Types & Company Importance</h2>
+        <div className="space-y-3">
+          {problemTypes.map((item) => (
+            <div key={item.name} className="p-5 rounded-lg border border-white/5 bg-[#111] flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <div className="text-sm font-semibold text-white">{item.name}</div>
+                <div className="text-xs text-gray-500 mt-1">
+                  Difficulty: <span className="text-gray-300">{item.difficulty}</span>
+                </div>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {item.choices.map((choice) => (
+                    <span
+                      key={choice}
+                      className="px-3 py-1 rounded-full border text-[10px] font-bold uppercase tracking-widest"
+                      style={getChoiceStyles(choice)}
+                    >
+                      {choice}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="flex items-center gap-1">
+                {Array.from({ length: 5 }).map((_, index) => {
+                  const isFilled = index < item.importance;
+                  return (
+                    <Star
+                      key={`${item.name}-star-${index}`}
+                      size={14}
+                      className={isFilled ? 'text-indigo-500' : 'text-white/10'}
+                      fill={isFilled ? 'currentColor' : 'none'}
+                    />
+                  );
+                })}
+              </div>
+            </div>
           ))}
         </div>
       </section>
