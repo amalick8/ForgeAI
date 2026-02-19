@@ -1,7 +1,7 @@
 
 import React, { useRef } from 'react';
 import { motion, Variants, useScroll, useTransform } from 'framer-motion';
-import { RefreshCw, Search, Target, Zap, HelpCircle, CheckCircle2, Github, Code, FileText, Database } from 'lucide-react';
+import { HelpCircle, CheckCircle2, Github, Code, FileText, Database } from 'lucide-react';
 
 // Fix: Explicitly type variants and cast ease to any to resolve transition property incompatibility where cubic-bezier arrays are incorrectly inferred as general number arrays.
 const sectionVariants: Variants = {
@@ -65,9 +65,6 @@ const HowItWorks: React.FC = () => {
         >
           <motion.div style={{ y: textY }} className="max-w-md">
             <motion.div variants={childVariants}>
-              <div className="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6">
-                <RefreshCw size={20} className="text-indigo-400" />
-              </div>
               <h2 className="text-2xl font-bold mb-4 text-white">1. Connect</h2>
               <p className="text-gray-400 leading-relaxed mb-8">
                 Securely link your professional profile. Forge integrates directly with your GitHub, LeetCode, and Resume to synthesize a unified engineering signal.
@@ -159,9 +156,6 @@ const HowItWorks: React.FC = () => {
           </motion.div>
           <motion.div style={{ y: textY }} className="order-1 md:order-2 max-w-md">
             <motion.div variants={childVariants}>
-              <div className="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6">
-                <Search size={20} className="text-indigo-400" />
-              </div>
               <h2 className="text-2xl font-bold mb-4 text-white">2. Audit</h2>
               <p className="text-gray-400 leading-relaxed">
                 We perform deep semantic analysis across your source code and DSA history. Forge audits for architectural patterns, technical complexity, and conceptual mastery, mapping your data against industry standards.
@@ -180,9 +174,6 @@ const HowItWorks: React.FC = () => {
         >
           <motion.div style={{ y: textY }} className="max-w-md">
             <motion.div variants={childVariants}>
-              <div className="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6">
-                <Target size={20} className="text-indigo-400" />
-              </div>
               <h2 className="text-2xl font-bold mb-4 text-white">3. Improve</h2>
               <p className="text-gray-400 leading-relaxed">
                 Turn insights into execution. Forge generates a prioritized roadmap of optimizations, from specific resume impact rewrites to algorithmic pattern gaps, guiding you directly to peak readiness.
@@ -256,9 +247,6 @@ const HowItWorks: React.FC = () => {
           </motion.div>
           <motion.div style={{ y: textY }} className="order-1 md:order-2 max-w-md">
             <motion.div variants={childVariants}>
-              <div className="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6">
-                <Zap size={20} className="text-indigo-400" />
-              </div>
               <h2 className="text-2xl font-bold mb-4 text-white">4. Track</h2>
               <p className="text-gray-400 leading-relaxed">
                 Preparation is a high-stakes marathon. We track your trajectory with high granularity, visualizing your growth across all domains to ensure you're trending toward top-tier technical competence.
