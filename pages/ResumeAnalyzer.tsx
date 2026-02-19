@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Upload, FileText, CheckCircle2, AlertCircle, Sparkles, Wand2, ArrowRight } from 'lucide-react';
 import { analyzeResume } from '../geminiService';
@@ -62,8 +61,7 @@ const ResumeAnalyzer: React.FC = () => {
             <button 
               onClick={startAnalysis}
               disabled={analyzing}
-              className="px-8 py-3 rounded-2xl bg-blue-600 text-white font-bold hover:bg-blue-500 transition-all disabled:opacity-50 flex items-center gap-2"
-            >
+              className="px-8 py-3 rounded-2xl bg-blue-600 text-white font-bold hover:bg-blue-500 transition-all disabled:opacity-50 flex items-center gap-2">
               {analyzing ? 'Analyzing with AI...' : 'Analyze Now'}
               <Sparkles size={18} />
             </button>
