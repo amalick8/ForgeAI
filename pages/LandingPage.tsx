@@ -21,6 +21,7 @@ const LandingPage: React.FC = () => {
     target: previewRef,
     offset: ["start end", "end start"]
   });
+
   const previewOuterY = useTransform(previewScroll, [0, 1], [40, -40]);
   const previewInnerY = useTransform(previewScroll, [0, 1], [60, -60]);
 
