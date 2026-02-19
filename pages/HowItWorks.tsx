@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { motion, Variants, useScroll, useTransform } from 'framer-motion';
 import { HelpCircle, CheckCircle2, Github, Code, FileText, Database } from 'lucide-react';
