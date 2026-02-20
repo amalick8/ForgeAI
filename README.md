@@ -259,4 +259,66 @@ For support, feature requests, or bug reports, please contact the team or open a
 
 ---
 
+## 2026 Addendum (Current Workspace Snapshot)
+
+The sections above remain valid, and this addendum reflects the current file layout and runtime behavior as of **February 19, 2026**.
+
+### Current Top-Level Structure
+
+> Note: The current workspace is root-based (no `src/` directory).
+
+```
+forge_-ai-career-accelerator/
+├── .env.local                          # Local environment variables
+├── App.tsx                             # Main app + routing and layouts
+├── geminiService.ts                    # Google Gemini API integration
+├── index.html                          # HTML entry point
+├── index.tsx                           # React mount/bootstrapping
+├── metadata.json                       # App metadata
+├── package.json                        # Dependencies + scripts
+├── tsconfig.json                       # TypeScript configuration
+├── types.ts                            # Shared TypeScript types
+├── vite.config.ts                      # Vite configuration
+│
+└── pages/
+      ├── LandingPage.tsx                 # Marketing homepage
+      ├── HowItWorks.tsx                  # Product explanation
+      ├── Pricing.tsx                     # Pricing page
+      ├── LoginPage.tsx                   # Authentication login
+      ├── SignupPage.tsx                  # Authentication signup
+      ├── DemoPage.tsx                    # Demo-related page/component
+      ├── Dashboard.tsx                   # Dashboard-style page/component
+      ├── GithubAnalyzer.tsx              # Standalone analyzer page/component
+      ├── LeetCodeAnalyzer.tsx            # Standalone analyzer page/component
+      ├── ResumeAnalyzer.tsx              # Standalone analyzer page/component
+      ├── InterviewVault.tsx              # Standalone vault page/component
+      │
+      └── app/
+            ├── AppHome.tsx                 # In-app dashboard
+            ├── AppGitHub.tsx               # In-app GitHub analyzer
+            ├── AppLeetCode.tsx             # In-app LeetCode analyzer
+            ├── AppSemanticAnalysis.tsx     # In-app semantic analysis
+            ├── AppResume.tsx               # In-app resume analysis
+            ├── AppATS.tsx                  # In-app ATS audit
+            ├── AppVault.tsx                # In-app interview vault
+            └── AppSettings.tsx             # In-app settings
+```
+
+### Routing Runtime Notes (Current)
+
+- The app uses **`HashRouter`** in `App.tsx`, so browser URLs are hash-based in production/static hosting contexts.
+- Public marketing/auth routes remain:
+   - `/`, `/how-it-works`, `/pricing`, `/login`, `/signup`
+- Demo routes are mounted under `/demo/*` with app-like navigation:
+   - `/demo/home`, `/demo/github`, `/demo/leetcode`, `/demo/leetcode/semantic-analysis`, `/demo/resume`, `/demo/ats`, `/demo/interview-vault`, `/demo/settings`
+- Authenticated routes are mounted under `/app/*`:
+   - `/app/home`, `/app/github`, `/app/leetcode`, `/app/leetcode/semantic-analysis`, `/app/resume`, `/app/ats`, `/app/interview-vault`, `/app/settings`
+
+### Component Inventory Clarification
+
+- The `pages/app/*` components are the primary routed application surfaces in the current `App.tsx` setup.
+- Additional standalone page files (for example `Dashboard.tsx`, `GithubAnalyzer.tsx`, `LeetCodeAnalyzer.tsx`, `ResumeAnalyzer.tsx`, and `InterviewVault.tsx`) exist in `pages/` and can support alternate flows, modular development, or future route expansions.
+
+---
+
 **Built with ❤️ to accelerate your tech career** | Forge - AI Career Accelerator

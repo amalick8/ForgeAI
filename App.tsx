@@ -444,16 +444,18 @@ const AppLayout: React.FC<AppLayoutProps> = ({ onLogout, isDemo }) => {
         )}
         <main className="flex-1 overflow-y-auto p-8 max-w-5xl mx-auto w-full">
           <AnimatePresence mode="wait">
-            <Routes location={location}>
-              <Route path="home" element={<PageWrapper><AppHome isDemo={isDemo} /></PageWrapper>} />
-              <Route path="github" element={<PageWrapper><AppGitHub isDemo={isDemo} /></PageWrapper>} />
-              <Route path="leetcode" element={<PageWrapper><AppLeetCode isDemo={isDemo} /></PageWrapper>} />
-              <Route path="leetcode/semantic-analysis" element={<PageWrapper><AppSemanticAnalysis isDemo={isDemo} /></PageWrapper>} />
-              <Route path="resume" element={<PageWrapper><AppResume isDemo={isDemo} /></PageWrapper>} />
-              <Route path="ats" element={<PageWrapper><AppATS isDemo={isDemo} /></PageWrapper>} />
-              <Route path="interview-vault" element={<PageWrapper><AppVault isDemo={isDemo} /></PageWrapper>} />
-              <Route path="settings" element={<PageWrapper><AppSettings isDemo={isDemo} /></PageWrapper>} />
-            </Routes>
+            <div key={location.pathname}>
+              <Routes location={location}>
+                <Route path="home" element={<PageWrapper><AppHome isDemo={isDemo} /></PageWrapper>} />
+                <Route path="github" element={<PageWrapper><AppGitHub isDemo={isDemo} /></PageWrapper>} />
+                <Route path="leetcode" element={<PageWrapper><AppLeetCode isDemo={isDemo} /></PageWrapper>} />
+                <Route path="leetcode/semantic-analysis" element={<PageWrapper><AppSemanticAnalysis isDemo={isDemo} /></PageWrapper>} />
+                <Route path="resume" element={<PageWrapper><AppResume isDemo={isDemo} /></PageWrapper>} />
+                <Route path="ats" element={<PageWrapper><AppATS isDemo={isDemo} /></PageWrapper>} />
+                <Route path="interview-vault" element={<PageWrapper><AppVault isDemo={isDemo} /></PageWrapper>} />
+                <Route path="settings" element={<PageWrapper><AppSettings isDemo={isDemo} /></PageWrapper>} />
+              </Routes>
+            </div>
           </AnimatePresence>
         </main>
       </div>
