@@ -232,7 +232,6 @@ rm -rf node_modules package-lock.json
 npm install
 npm run build
 ```
-
 ---
 
 ## Contributing
@@ -312,7 +311,7 @@ forge_-ai-career-accelerator/
 - Demo routes are mounted under `/demo/*` with app-like navigation:
    - `/demo/home`, `/demo/github`, `/demo/leetcode`, `/demo/leetcode/semantic-analysis`, `/demo/resume`, `/demo/ats`, `/demo/interview-vault`, `/demo/settings`
 - Authenticated routes are mounted under `/app/*`:
-   - `/app/home`, `/app/github`, `/app/leetcode`, `/app/leetcode/semantic-analysis`, `/app/resume`, `/app/ats`, `/app/interview-vault`, `/app/settings`
+   - `/app/home`, `/app/github`, `/app/leetcode`, `/app/leetcode/semantic-analysis`, `/app/resume`, `/app/ats`, `/app/interview-vault`, `/app/settings`f
 
 ### Component Inventory Clarification
 
@@ -322,3 +321,4 @@ forge_-ai-career-accelerator/
 ---
 
 **Built with ❤️ to accelerate your tech career** | Forge - AI Career Accelerator
+
