@@ -1,9 +1,8 @@
 # Forge: AI Career Accelerator
 
-## Demo Link
+## 🚀 Live Demo
 
-[https://amalick8.github.io/ForgeAI/
-](url)
+https://amalick8.github.io/ForgeAI/
 
 ## About
 
