@@ -1,5 +1,10 @@
 # Forge: AI Career Accelerator
 
+## Demo Link
+
+[https://amalick8.github.io/ForgeAI/
+](url)
+
 ## About
 
 **Forge** is a premium, AI-powered career acceleration platform for software engineers and students. It provides high-fidelity analysis of resumes, GitHub profiles, and LeetCode activity to help you identify gaps and land FAANG-level interviews.
